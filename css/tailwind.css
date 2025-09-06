@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary Colors */
+  --color-primary: #1E3A8A; /* blue-800 */
+  --color-primary-50: #EFF6FF; /* blue-50 */
+  --color-primary-100: #DBEAFE; /* blue-100 */
+  --color-primary-500: #3B82F6; /* blue-500 */
+  --color-primary-600: #2563EB; /* blue-600 */
+  --color-primary-700: #1D4ED8; /* blue-700 */
+  --color-primary-800: #1E40AF; /* blue-800 */
+  --color-primary-900: #1E3A8A; /* blue-900 */
+
+  /* Secondary Colors */
+  --color-secondary: #64748B; /* slate-500 */
+  --color-secondary-50: #F8FAFC; /* slate-50 */
+  --color-secondary-100: #F1F5F9; /* slate-100 */
+  --color-secondary-200: #E2E8F0; /* slate-200 */
+  --color-secondary-300: #CBD5E1; /* slate-300 */
+  --color-secondary-400: #94A3B8; /* slate-400 */
+  --color-secondary-500: #64748B; /* slate-500 */
+  --color-secondary-600: #475569; /* slate-600 */
+  --color-secondary-700: #334155; /* slate-700 */
+
+  /* Accent Colors */
+  --color-accent: #F59E0B; /* amber-500 */
+  --color-accent-50: #FFFBEB; /* amber-50 */
+  --color-accent-100: #FEF3C7; /* amber-100 */
+  --color-accent-200: #FDE68A; /* amber-200 */
+  --color-accent-400: #FBBF24; /* amber-400 */
+  --color-accent-500: #F59E0B; /* amber-500 */
+  --color-accent-600: #D97706; /* amber-600 */
+
+  /* Background Colors */
+  --color-background: #FAFBFC; /* custom off-white */
+  --color-surface: #FFFFFF; /* white */
+
+  /* Text Colors */
+  --color-text-primary: #1F2937; /* gray-800 */
+  --color-text-secondary: #6B7280; /* gray-500 */
+
+  /* Status Colors */
+  --color-success: #10B981; /* emerald-500 */
+  --color-success-50: #ECFDF5; /* emerald-50 */
+  --color-success-100: #D1FAE5; /* emerald-100 */
+  --color-success-500: #10B981; /* emerald-500 */
+  --color-success-600: #059669; /* emerald-600 */
+
+  --color-warning: #F59E0B; /* amber-500 */
+  --color-warning-50: #FFFBEB; /* amber-50 */
+  --color-warning-100: #FEF3C7; /* amber-100 */
+
+  --color-error: #EF4444; /* red-500 */
+  --color-error-50: #FEF2F2; /* red-50 */
+  --color-error-100: #FEE2E2; /* red-100 */
+  --color-error-500: #EF4444; /* red-500 */
+  --color-error-600: #DC2626; /* red-600 */
+
+  /* Shadow Colors */
+  --shadow-primary: rgba(30, 58, 138, 0.04); /* primary with 4% opacity */
+  --shadow-primary-hover: rgba(30, 58, 138, 0.08); /* primary with 8% opacity */
+  --shadow-primary-active: rgba(30, 58, 138, 0.12); /* primary with 12% opacity */
+
+  /* Border Colors */
+  --border-light: rgba(203, 213, 225, 0.6); /* slate-300 with 60% opacity */
+}
+
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+  }
+
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 200ms ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 200ms ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 200ms ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { 
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to { 
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from { 
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to { 
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+
+@layer components {
+  /* Button Components */
+  .btn-primary {
+    @apply bg-primary text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 ease-out;
+    @apply hover:bg-primary-700 hover:shadow-lg active:bg-primary-800 active:scale-95;
+    box-shadow: 0 2px 8px var(--shadow-primary);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 4px 12px var(--shadow-primary-hover);
+  }
+
+  .btn-secondary {
+    @apply bg-secondary-100 text-secondary-700 px-6 py-3 rounded-lg font-medium transition-all duration-200 ease-out;
+    @apply hover:bg-secondary-200 hover:shadow-md active:bg-secondary-300 active:scale-95;
+  }
+
+  .btn-accent {
+    @apply bg-accent text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 ease-out;
+    @apply hover:bg-accent-600 hover:shadow-lg active:scale-95;
+  }
+
+  /* Card Components */
+  .card {
+    @apply bg-surface rounded-lg border border-opacity-60 transition-all duration-200 ease-out;
+    border-color: var(--border-light);
+    box-shadow: 0 1px 3px var(--shadow-primary);
+  }
+
+  .card:hover {
+    box-shadow: 0 4px 12px var(--shadow-primary-hover);
+    transform: translateY(-1px);
+  }
+
+  .card-elevated {
+    box-shadow: 0 4px 12px var(--shadow-primary-hover);
+  }
+
+  .card-active {
+    box-shadow: 0 8px 20px var(--shadow-primary-active);
+  }
+
+  /* Form Components */
+  .form-input {
+    @apply w-full px-4 py-3 rounded border bg-surface text-text-primary transition-all duration-200 ease-out;
+    border-color: var(--border-light);
+  }
+
+  .form-input:focus {
+    @apply outline-none ring-2 ring-primary-500 ring-opacity-50 border-primary-500;
+  }
+
+  .form-input:invalid {
+    @apply border-error-500 ring-error-500 ring-opacity-50;
+  }
+
+  /* Data Display */
+  .data-mono {
+    font-family: 'JetBrains Mono', monospace;
+    @apply text-text-primary;
+  }
+
+  /* Status Indicators */
+  .status-success {
+    @apply bg-success-50 text-success-600 border border-success-100;
+  }
+.status-warning  {
+    @apply bg-warning-50 border border-warning-100;
+  }
+
+  .status-error {
+    @apply bg-error-50 text-error-600 border border-error-100;
+  }
+
+  /* Loading States */
+  .skeleton {
+    @apply bg-secondary-200 animate-pulse rounded;
+  }
+
+  .skeleton-text {
+    @apply h-4 bg-secondary-200 animate-pulse rounded;
+  }
+
+  .skeleton-avatar {
+    @apply w-10 h-10 bg-secondary-200 animate-pulse rounded-full;
+  }
+}
+
+@layer utilities {
+  /* Custom spacing utilities */
+  .space-y-banking > * + * {
+    margin-top: 1.5rem;
+  }
+
+  /* Backdrop blur utilities */
+  .backdrop-blur-banking {
+    backdrop-filter: blur(8px);
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+
+  /* Text utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Animation delays for sequential loading */
+  .delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .delay-300 {
+    animation-delay: 300ms;
+  }
+}

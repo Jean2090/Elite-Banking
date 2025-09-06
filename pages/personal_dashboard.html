@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Dashboard - Elite Banking Portal</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Felitebank3949back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-background min-h-screen">
+    <!-- Header Navigation -->
+    <header class="bg-surface border-b border-secondary-200 sticky top-0 z-50 backdrop-blur-banking">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-primary-600 to-primary-800 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
+                            <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-primary-800">Elite Banking</h1>
+                        <p class="text-xs text-secondary-500">Secure Banking Portal</p>
+                    </div>
+                </div>
+
+                <!-- Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="personal_dashboard.html" class="text-primary-600 font-medium border-b-2 border-primary-600 pb-1">Dashboard</a>
+                    <a href="transaction_history.html" class="text-secondary-600 hover:text-primary-600 transition-colors duration-200">Transactions</a>
+                    <a href="money_transfer.html" class="text-secondary-600 hover:text-primary-600 transition-colors duration-200">Transfer</a>
+                    <a href="account_settings.html" class="text-secondary-600 hover:text-primary-600 transition-colors duration-200">Settings</a>
+                </nav>
+
+                <!-- User Profile & Actions -->
+                <div class="flex items-center space-x-4">
+                    <!-- Notifications -->
+                    <button class="relative p-2 rounded-lg hover:bg-secondary-100 transition-colors duration-200">
+                        <svg class="w-6 h-6 text-secondary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-5 5v-5zM10.07 2.82l3.93 3.93-3.93 3.93M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <span class="absolute -top-1 -right-1 w-3 h-3 bg-error-500 rounded-full"></span>
+                    </button>
+
+                    <!-- User Menu -->
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center">
+                            <span class="text-sm font-medium text-primary-700">JD</span>
+                        </div>
+                        <div class="hidden md:block">
+                            <p class="text-sm font-medium text-text-primary">John Doe</p>
+                            <p class="text-xs text-secondary-500">Premium Account</p>
+                        </div>
+                        <button class="p-1 rounded hover:bg-secondary-100 transition-colors duration-200">
+                            <svg class="w-4 h-4 text-secondary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button class="md:hidden p-2 rounded-lg hover:bg-secondary-100 transition-colors duration-200">
+                        <svg class="w-6 h-6 text-secondary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Dashboard Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Welcome Section -->
+        <div class="mb-8 animate-fade-in">
+            <div class="flex items-center justify-between mb-6">
+                <div>
+                    <h2 class="text-3xl font-bold text-text-primary mb-2">Welcome back, John!</h2>
+                    <p class="text-secondary-600">Here's your financial overview for today, September 5, 2025</p>
+                </div>
+                <div class="hidden md:flex items-center space-x-4">
+                    <div class="text-right">
+                        <p class="text-sm text-secondary-500">Last login</p>
+                        <p class="text-sm font-medium text-text-primary">Sep 5, 2025 at 10:45 AM</p>
+                    </div>
+                    <div class="w-2 h-2 bg-success-500 rounded-full"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Account Summary Cards -->
+        <section class="mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Checking Account -->
+                <div class="card p-6 animate-slide-up">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-text-primary">Checking Account</h3>
+                                <p class="text-sm text-secondary-500">****1234</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-1">
+                            <div class="w-2 h-2 bg-success-500 rounded-full"></div>
+                            <span class="text-xs text-success-600 font-medium">Active</span>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <p class="text-sm text-secondary-500 mb-1">Available Balance</p>
+                        <p class="text-3xl font-bold text-text-primary data-mono">$129,847,567.50</p>
+                    </div>
+                    <div class="flex items-center justify-between text-sm">
+                        <span class="text-secondary-500">Recent activity</span>
+                        <span class="text-success-600 font-medium">+$112,340.00</span>
+                    </div>
+                </div>
+
+                <!-- Savings Account -->
+                <div class="card p-6 animate-slide-up delay-100">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-accent-100 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-text-primary">Savings Account</h3>
+                                <p class="text-sm text-secondary-500">****5678</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-1">
+                            <div class="w-2 h-2 bg-success-500 rounded-full"></div>
+                            <span class="text-xs text-success-600 font-medium">Active</span>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <p class="text-sm text-secondary-500 mb-1">Available Balance</p>
+                        <p class="text-3xl font-bold text-text-primary data-mono">$455,230.75</p>
+                    </div>
+                    <div class="flex items-center justify-between text-sm">
+                        <span class="text-secondary-500">Interest earned</span>
+                        <span class="text-success-600 font-medium">+$20,125.30</span>
+                    </div>
+                </div>
+
+                <!-- Credit Card -->
+                <div class="card p-6 animate-slide-up delay-200">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-error-100 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-error-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-text-primary">Elite Credit Card</h3>
+                                <p class="text-sm text-secondary-500">****9012</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-1">
+                            <div class="w-2 h-2 bg-warning-500 rounded-full"></div>
+                            <span class="text-xs text-warning-600 font-medium">Due Soon</span>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <p class="text-sm text-secondary-500 mb-1">Current Balance</p>
+                        <p class="text-3xl font-bold text-error-600 data-mono">$3,247.85</p>
+                    </div>
+                    <div class="flex items-center justify-between text-sm">
+                        <span class="text-secondary-500">Credit limit</span>
+                        <span class="text-secondary-600 font-medium">$15,000.00</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Dashboard Grid -->
+        <div class="grid lg:grid-cols-3 gap-8">
+            <!-- Left Column - Transaction Activity & Charts -->
+            <div class="lg:col-span-2 space-y-8">
+                <!-- Quick Actions -->
+                <section class="animate-slide-up delay-100">
+                    <h3 class="text-xl font-semibold text-text-primary mb-6">Quick Actions</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <a href="money_transfer.html" class="card p-6 hover:shadow-banking-hover transition-all duration-200 group">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center group-hover:bg-primary-200 transition-colors duration-200">
+                                    <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-text-primary">Transfer Money</h4>
+                                    <p class="text-sm text-secondary-500">Send to accounts</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="javascript:void(0)" class="card p-6 hover:shadow-banking-hover transition-all duration-200 group">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-accent-100 rounded-lg flex items-center justify-center group-hover:bg-accent-200 transition-colors duration-200">
+                                    <svg class="w-6 h-6 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-text-primary">Pay Bills</h4>
+                                    <p class="text-sm text-secondary-500">Utilities & more</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="javascript:void(0)" class="card p-6 hover:shadow-banking-hover transition-all duration-200 group">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-success-100 rounded-lg flex items-center justify-center group-hover:bg-success-200 transition-colors duration-200">
+                                    <svg class="w-6 h-6 text-success-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-text-primary">Mobile Recharge</h4>
+                                    <p class="text-sm text-secondary-500">Top up instantly</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Recent Transactions -->
+                <section class="animate-slide-up delay-200">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-xl font-semibold text-text-primary">Recent Transactions</h3>
+                        <div class="flex items-center space-x-4">
+                            <!-- Search -->
+                            <div class="relative">
+                                <input type="text" placeholder="Search transactions..." class="form-input pl-10 pr-4 py-2 w-64 text-sm" />
+                                <svg class="w-4 h-4 text-secondary-400 absolute left-3 top-1/2 transform -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                                </svg>
+                            </div>
+                            <!-- Filter -->
+                            <button class="flex items-center space-x-2 px-4 py-2 border border-secondary-200 rounded-lg hover:bg-secondary-50 transition-colors duration-200">
+                                <svg class="w-4 h-4 text-secondary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/>
+                                </svg>
+                                <span class="text-sm text-secondary-600">Filter</span>
+                            </button>
+                            <a href="transaction_history.html" class="text-primary-600 hover:text-primary-700 text-sm font-medium">View All</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="divide-y divide-secondary-100">
+                            <!-- Transaction Item -->
+                            <div class="p-6 hover:bg-secondary-50 transition-colors duration-200">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center space-x-4">
+                                        <div class="w-12 h-12 bg-success-100 rounded-full flex items-center justify-center">
+                                            <svg class="w-6 h-6 text-success-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium text-text-primary">Salary Deposit</h4>
+                                            <p class="text-sm text-secondary-500">From: Acme Corporation</p>
+                                            <p class="text-xs text-secondary-400">Sep 5, 2025 • 09:30 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="text-lg font-semibold text-success-600 data-mono">+$15,200.00</p>
+                                        <p class="text-sm text-secondary-500">Checking</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Transaction Item -->
+                            <div class="p-6 hover:bg-secondary-50 transition-colors duration-200">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center space-x-4">
+                                        <div class="w-12 h-12 bg-error-100 rounded-full flex items-center justify-center">
+                                            <svg class="w-6 h-6 text-error-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium text-text-primary">Grocery Store</h4>
+                                            <p class="text-sm text-secondary-500">Card ending in 9012</p>
+                                            <p class="text-xs text-secondary-400">Sep 4, 2025 • 06:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="text-lg font-semibold text-error-600 data-mono">-$127.43</p>
+                                        <p class="text-sm text-secondary-500">Credit Card</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Transaction Item -->
+                            <div class="p-6 hover:bg-secondary-50 transition-colors duration-200">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center space-x-4">
+                                        <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
+                                            <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium text-text-primary">Transfer to Sarah</h4>
+                                            <p class="text-sm text-secondary-500">To: ****2468</p>
+                                            <p class="text-xs text-secondary-400">Sep 4, 2025 • 02:15 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="text-lg font-semibold text-error-600 data-mono">-$500.00</p>
+                                        <p class="text-sm text-secondary-500">Checking</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Transaction Item -->
+                            <div class="p-6 hover:bg-secondary-50 transition-colors duration-200">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center space-x-4">
+                                        <div class="w-12 h-12 bg-accent-100 rounded-full flex items-center justify-center">
+                                            <svg class="w-6 h-6 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium text-text-primary">Electric Bill</h4>
+                                            <p class="text-sm text-secondary-500">City Power Company</p>
+                                            <p class="text-xs text-secondary-400">Sep 3, 2025 • 11:20 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="text-lg font-semibold text-error-600 data-mono">-$89.50</p>
+                                        <p class="text-sm text-secondary-500">Checking</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Spending Analytics Chart -->
+                <section class="animate-slide-up delay-300">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-xl font-semibold text-text-primary">Spending Analytics</h3>
+                        <div class="flex items-center space-x-2">
+                            <button class="px-3 py-1 text-sm bg-primary-100 text-primary-700 rounded-lg">This Month</button>
+                            <button class="px-3 py-1 text-sm text-secondary-600 hover:bg-secondary-100 rounded-lg transition-colors duration-200">Last Month</button>
+                            <button class="px-3 py-1 text-sm text-secondary-600 hover:bg-secondary-100 rounded-lg transition-colors duration-200">3 Months</button>
+                        </div>
+                    </div>
+
+                    <div class="card p-6">
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <!-- Chart Placeholder -->
+                            <div class="space-y-4">
+                                <h4 class="font-medium text-text-primary">Monthly Spending Trend</h4>
+                                <div class="h-64 bg-secondary-50 rounded-lg flex items-center justify-center" aria-label="Monthly spending trend chart">
+                                    <svg class="w-full h-full p-4" viewBox="0 0 400 200">
+                                        <!-- Chart Grid -->
+                                        <defs>
+                                            <pattern id="grid" width="40" height="20" patternUnits="userSpaceOnUse">
+                                                <path d="M 40 0 L 0 0 0 20" fill="none" stroke="#e2e8f0" stroke-width="1"/>
+                                            </pattern>
+                                        </defs>
+                                        <rect width="100%" height="100%" fill="url(#grid)"/>
+                                        
+                                        <!-- Chart Line -->
+                                        <polyline fill="none" stroke="#2563eb" stroke-width="3" points="20,160 60,140 100,120 140,100 180,80 220,90 260,70 300,60 340,50 380,40"/>
+                                        
+                                        <!-- Data Points -->
+                                        <circle cx="20" cy="160" r="4" fill="#2563eb"/>
+                                        <circle cx="60" cy="140" r="4" fill="#2563eb"/>
+                                        <circle cx="100" cy="120" r="4" fill="#2563eb"/>
+                                        <circle cx="140" cy="100" r="4" fill="#2563eb"/>
+                                        <circle cx="180" cy="80" r="4" fill="#2563eb"/>
+                                        <circle cx="220" cy="90" r="4" fill="#2563eb"/>
+                                        <circle cx="260" cy="70" r="4" fill="#2563eb"/>
+                                        <circle cx="300" cy="60" r="4" fill="#2563eb"/>
+                                        <circle cx="340" cy="50" r="4" fill="#2563eb"/>
+                                        <circle cx="380" cy="40" r="4" fill="#2563eb"/>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <!-- Category Breakdown -->
+                            <div class="space-y-4">
+                                <h4 class="font-medium text-text-primary">Category Breakdown</h4>
+                                <div class="space-y-4">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-4 h-4 bg-primary-500 rounded-full"></div>
+                                            <span class="text-sm text-secondary-600">Groceries</span>
+                                        </div>
+                                        <div class="text-right">
+                                            <span class="text-sm font-medium text-text-primary">$1,247.50</span>
+                                            <span class="text-xs text-secondary-500 ml-2">32%</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-4 h-4 bg-accent-500 rounded-full"></div>
+                                            <span class="text-sm text-secondary-600">Utilities</span>
+                                        </div>
+                                        <div class="text-right">
+                                            <span class="text-sm font-medium text-text-primary">$892.30</span>
+                                            <span class="text-xs text-secondary-500 ml-2">23%</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-4 h-4 bg-success-500 rounded-full"></div>
+                                            <span class="text-sm text-secondary-600">Entertainment</span>
+                                        </div>
+                                        <div class="text-right">
+                                            <span class="text-sm font-medium text-text-primary">$645.75</span>
+                                            <span class="text-xs text-secondary-500 ml-2">17%</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-4 h-4 bg-error-500 rounded-full"></div>
+                                            <span class="text-sm text-secondary-600">Transportation</span>
+                                        </div>
+                                        <div class="text-right">
+                                            <span class="text-sm font-medium text-text-primary">$534.20</span>
+                                            <span class="text-xs text-secondary-500 ml-2">14%</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-4 h-4 bg-secondary-400 rounded-full"></div>
+                                            <span class="text-sm text-secondary-600">Others</span>
+                                        </div>
+                                        <div class="text-right">
+                                            <span class="text-sm font-medium text-text-primary">$423.15</span>
+                                            <span class="text-xs text-secondary-500 ml-2">14%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Column - Notifications & Widgets -->
+            <div class="lg:col-span-1 space-y-6">
+                <!-- Notifications Center -->
+                <section class="animate-slide-up delay-100">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-semibold text-text-primary">Notifications</h3>
+                        <button class="text-sm text-primary-600 hover:text-primary-700">Mark all read</button>
+                    </div>
+
+                    <div class="space-y-3">
+                        <!-- Notification Item -->
+                        <div class="card p-4 border-l-4 border-l-primary-500">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-4 h-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/>
+                                    </svg>
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="text-sm font-medium text-text-primary">Salary Credited</h4>
+                                    <p class="text-xs text-secondary-500 mt-1">Your salary of $15,200.00 has been credited to your checking account.</p>
+                                    <p class="text-xs text-secondary-400 mt-2">2 hours ago</p>
+                                </div>
+                                <button class="text-secondary-400 hover:text-secondary-600">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Notification Item -->
+                        <div class="card p-4 border-l-4 border-l-warning-500">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-8 h-8 bg-warning-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-4 h-4 text-warning-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.732-.833-2.464 0L4.35 16.5c-.77.833.192 2.5 1.732 2.5z"/>
+                                    </svg>
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="text-sm font-medium text-text-primary">Credit Card Payment Due</h4>
+                                    <p class="text-xs text-secondary-500 mt-1">Your credit card payment of $3,247.85 is due on Sep 15, 2025.</p>
+                                    <p class="text-xs text-secondary-400 mt-2">1 day ago</p>
+                                </div>
+                                <button class="text-secondary-400 hover:text-secondary-600">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Notification Item -->
+                        <div class="card p-4 border-l-4 border-l-success-500">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-8 h-8 bg-success-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-4 h-4 text-success-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="text-sm font-medium text-text-primary">Transfer Completed</h4>
+                                    <p class="text-xs text-secondary-500 mt-1">$500.00 transferred to Sarah successfully.</p>
+                                    <p class="text-xs text-secondary-400 mt-2">2 days ago</p>
+                                </div>
+                                <button class="text-secondary-400 hover:text-secondary-600">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Financial Goals Widget -->
+                <section class="animate-slide-up delay-200">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-semibold text-text-primary">Financial Goals</h3>
+                        <button class="text-sm text-primary-600 hover:text-primary-700">Manage</button>
+                    </div>
+
+                    <div class="space-y-4">
+                        <!-- Goal Item -->
+                        <div class="card p-4">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="text-sm font-medium text-text-primary">Emergency Fund</h4>
+                                <span class="text-xs text-success-600 font-medium">78%</span>
+                            </div>
+                            <div class="w-full bg-secondary-200 rounded-full h-2 mb-2">
+                                <div class="bg-success-500 h-2 rounded-full" style="width: 78%"></div>
+                            </div>
+                            <div class="flex items-center justify-between text-xs text-secondary-500">
+                                <span>$7,800 of $10,000</span>
+                                <span>$2,200 to go</span>
+                            </div>
+                        </div>
+
+                        <!-- Goal Item -->
+                        <div class="card p-4">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="text-sm font-medium text-text-primary">Vacation Fund</h4>
+                                <span class="text-xs text-primary-600 font-medium">45%</span>
+                            </div>
+                            <div class="w-full bg-secondary-200 rounded-full h-2 mb-2">
+                                <div class="bg-primary-500 h-2 rounded-full" style="width: 45%"></div>
+                            </div>
+                            <div class="flex items-center justify-between text-xs text-secondary-500">
+                                <span>$2,250 of $5,000</span>
+                                <span>$2,750 to go</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Promotional Offers -->
+                <section class="animate-slide-up delay-300">
+                    <h3 class="text-lg font-semibold text-text-primary mb-4">Special Offers</h3>
+                    
+                    <div class="space-y-4">
+                        <!-- Offer Card -->
+                        <div class="card p-4 bg-gradient-to-r from-primary-50 to-primary-100 border-primary-200">
+                            <div class="flex items-start space-x-3">
+                                <img src="https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Credit Card Offer" class="w-12 h-12 rounded-lg object-cover" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                <div class="flex-1">
+                                    <h4 class="text-sm font-medium text-primary-800">Premium Credit Card</h4>
+                                    <p class="text-xs text-primary-600 mt-1">Get 5% cashback on all purchases. Apply now!</p>
+                                    <button class="text-xs text-primary-700 font-medium mt-2 hover:text-primary-800">Learn More →</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Offer Card -->
+                        <div class="card p-4 bg-gradient-to-r from-accent-50 to-accent-100 border-accent-200">
+                            <div class="flex items-start space-x-3">
+                                <img src="https://images.pixabay.com/photo/2016/12/06/14/33/business-1886760_1280.jpg" alt="Investment Offer" class="w-12 h-12 rounded-lg object-cover" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                <div class="flex-1">
+                                    <h4 class="text-sm font-medium text-accent-800">Investment Portfolio</h4>
+                                    <p class="text-xs text-accent-600 mt-1">Start investing with $1000 to get doubled coin back. Zero fees for 6 months!</p>
+                                    <button class="text-xs text-accent-700 font-medium mt-2 hover:text-accent-800">Get Started →</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Quick Tools -->
+                <section class="animate-slide-up delay-400">
+                    <h3 class="text-lg font-semibold text-text-primary mb-4">Quick Tools</h3>
+                    
+                    <div class="grid grid-cols-2 gap-3">
+                        <a href="javascript:void(0)" class="card p-4 text-center hover:shadow-banking-hover transition-all duration-200">
+                            <div class="w-8 h-8 bg-primary-100 rounded-lg flex items-center justify-center mx-auto mb-2">
+                                <svg class="w-4 h-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                                </svg>
+                            </div>
+                            <span class="text-xs font-medium text-text-primary">Calculator</span>
+                        </a>
+
+                        <a href="javascript:void(0)" class="card p-4 text-center hover:shadow-banking-hover transition-all duration-200">
+                            <div class="w-8 h-8 bg-accent-100 rounded-lg flex items-center justify-center mx-auto mb-2">
+                                <svg class="w-4 h-4 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                </svg>
+                            </div>
+                            <span class="text-xs font-medium text-text-primary">ATM Locator</span>
+                        </a>
+
+                        <a href="javascript:void(0)" class="card p-4 text-center hover:shadow-banking-hover transition-all duration-200">
+                            <div class="w-8 h-8 bg-success-100 rounded-lg flex items-center justify-center mx-auto mb-2">
+                                <svg class="w-4 h-4 text-success-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+                                </svg>
+                            </div>
+                            <span class="text-xs font-medium text-text-primary">Currency</span>
+                        </a>
+
+                        <a href="javascript:void(0)" class="card p-4 text-center hover:shadow-banking-hover transition-all duration-200">
+                            <div class="w-8 h-8 bg-error-100 rounded-lg flex items-center justify-center mx-auto mb-2">
+                                <svg class="w-4 h-4 text-error-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <span class="text-xs font-medium text-text-primary">Support</span>
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface border-t border-secondary-200 mt-16">
+        <div class="container mx-auto px-4 py-8">
+            <div class="text-center">
+                <p class="text-sm text-secondary-600">
+                    © 2025 Elite Banking Portal. All Rights Reserved. | 
+                    <a href="javascript:void(0)" class="text-primary-600 hover:text-primary-700">Privacy Policy</a> | 
+                    <a href="javascript:void(0)" class="text-primary-600 hover:text-primary-700">Terms of Service</a>
+                </p>
+                <p class="text-xs text-secondary-500 mt-2">
+                    Member FDIC. Equal Housing Lender. Your deposits are insured up to $700,250,000.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Dashboard Interactions -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Real-time balance updates simulation
+            function updateBalances() {
+                const balances = document.querySelectorAll('.data-mono');
+                balances.forEach(balance => {
+                    if (balance.textContent.includes('$')) {
+                        // Add subtle animation to indicate real-time updates
+                        balance.style.transition = 'all 0.3s ease';
+                        balance.style.transform = 'scale(1.02)';
+                        setTimeout(() => {
+                            balance.style.transform = 'scale(1)';
+                        }, 300);
+                    }
+                });
+            }
+
+            // Simulate real-time updates every 30 seconds
+            setInterval(updateBalances, 30000);
+
+            // Search functionality
+            const searchInput = document.querySelector('input[placeholder="Search transactions..."]');
+            if (searchInput) {
+                searchInput.addEventListener('input', function(e) {
+                    const searchTerm = e.target.value.toLowerCase();
+                    const transactions = document.querySelectorAll('.card .divide-y > div');
+                    
+                    transactions.forEach(transaction => {
+                        const text = transaction.textContent.toLowerCase();
+                        if (text.includes(searchTerm)) {
+                            transaction.style.display = 'block';
+                        } else {
+                            transaction.style.display = searchTerm ? 'none' : 'block';
+                        }
+                    });
+                });
+            }
+
+            // Notification dismissal
+            const dismissButtons = document.querySelectorAll('.card button[aria-label="Dismiss notification"]');
+            dismissButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const notification = this.closest('.card');
+                    notification.style.transition = 'all 0.3s ease';
+                    notification.style.opacity = '0';
+                    notification.style.transform = 'translateX(100%)';
+                    setTimeout(() => {
+                        notification.remove();
+                    }, 300);
+                });
+            });
+
+            // Quick action hover effects
+            const quickActions = document.querySelectorAll('a[href*="transfer"], a[href*="bills"], a[href*="recharge"]');
+            quickActions.forEach(action => {
+                action.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-2px)';
+                });
+                
+                action.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+
+            // Spending category animations
+            const categoryBars = document.querySelectorAll('[style*="width:"]');
+            categoryBars.forEach((bar, index) => {
+                setTimeout(() => {
+                    bar.style.transition = 'width 1s ease-out';
+                    const width = bar.style.width;
+                    bar.style.width = '0%';
+                    setTimeout(() => {
+                        bar.style.width = width;
+                    }, 100);
+                }, index * 200);
+            });
+
+            // Goal progress animations
+            const goalBars = document.querySelectorAll('.bg-success-500, .bg-primary-500');
+            goalBars.forEach((bar, index) => {
+                setTimeout(() => {
+                    bar.style.transition = 'width 1.5s ease-out';
+                    const width = bar.style.width;
+                    bar.style.width = '0%';
+                    setTimeout(() => {
+                        bar.style.width = width;
+                    }, 200);
+                }, index * 300);
+            });
+
+            // Card hover effects
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transition = 'all 0.2s ease';
+                    this.style.transform = 'translateY(-2px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+
+            // Simulate loading states for dynamic content
+            function showLoadingState() {
+                const dynamicElements = document.querySelectorAll('.data-mono, .card h4');
+                dynamicElements.forEach(element => {
+                    element.style.opacity = '0.6';
+                    setTimeout(() => {
+                        element.style.opacity = '1';
+                    }, 500);
+                });
+            }
+
+            // Trigger loading state on page interactions
+            document.addEventListener('click', function(e) {
+                if (e.target.matches('button, a')) {
+                    showLoadingState();
+                }
+            });
+
+            // Initialize tooltips for financial data
+            const financialData = document.querySelectorAll('.data-mono');
+            financialData.forEach(data => {
+                data.setAttribute('title', 'Real-time balance - Last updated: ' + new Date().toLocaleTimeString());
+            });
+
+            // Responsive chart adjustments
+            function adjustChartSize() {
+                const charts = document.querySelectorAll('svg');
+                charts.forEach(chart => {
+                    if (window.innerWidth < 768) {
+                        chart.style.height = '200px';
+                    } else {
+                        chart.style.height = '256px';
+                    }
+                });
+            }
+
+            window.addEventListener('resize', adjustChartSize);
+            adjustChartSize();
+
+            // Auto-refresh dashboard data simulation
+            function refreshDashboard() {
+                console.log('Dashboard data refreshed at:', new Date().toLocaleTimeString());
+                // In a real application, this would fetch fresh data from the API
+                updateBalances();
+            }
+
+            // Refresh every 5 minutes
+            setInterval(refreshDashboard, 300000);
+
+            console.log('Elite Banking Dashboard initialized successfully');
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>
